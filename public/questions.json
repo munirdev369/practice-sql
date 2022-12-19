@@ -1,0 +1,175 @@
+[
+  {
+    "id": 1,
+    "level": 1,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select * from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "id": 2,
+    "level": 1,
+    "question": "How many columns does the table named tracks have",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "id": 3,
+    "level": 1,
+    "question": "What are some of the data types in this table",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "id": 4,
+    "level": 1,
+    "question": "What fields are contained in the tracks table? ",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "id": 5,
+    "level": 1,
+    "question": "When sorted in descending order, which company appears at the top in the customers table? ",
+    "tableName": "Customer",
+    "answerQuery": "SELECT Company FROM Customer ORDER BY Company DESC",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many customers do not have a postal code? \n HINT: use NULL ",
+    "tableName": "Customer",
+    "answerQuery": "SELECT FirstName, LastName, PostalCode FROM Customer WHERE PostalCode IS NULL",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoices",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.  Order your results by the SalesType field.",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoices ORDER BY SalesType",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many invoices from Domestic Sales were over $15? \n Hint: Use the same query as the last question again, but this time add a WHERE clause and AND to include both the numeric and text parameters.",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total, CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales'  ELSE 'ForeignSales' END AS SalesType  FROM invoice WHERESalesType = 'Domestic Sales' AND Total > 15",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "Create an inner join between the albums and tracks tables and display the album names and track names in a single result set. ",
+    "tableName": "sqlite_master",
+    "answerQuery": "SELECT a.title, t.Name FROM album a INNER JOIN track t ON  a.AlbumId = t.TrackId",
+    "bindParams": null
+  },
+  {
+    "level": 3,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 4,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 5,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  },
+  {
+    "level": 2,
+    "question": "How many tables are in our database",
+    "tableName": "sqlite_master",
+    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "bindParams": null
+  }
+]
