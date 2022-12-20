@@ -10,9 +10,7 @@ import { useQuestions } from "./SQLDatabase";
 import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
-	const [questionsCompleted, setQuestionsCompleted] = useState<number[]>([
-		2, 4, 3,
-	]);
+	const [questionsCompleted, setQuestionsCompleted] = useState<number[]>([]);
 
 	const { loading } = useQuestions();
 
