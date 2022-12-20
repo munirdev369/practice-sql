@@ -17,7 +17,10 @@ interface SQLDatabaseState {
 
 const initialState: SQLDatabaseState = {
 	db: null,
-	questions: [],
+	questions: {
+		data: [],
+		loading: false
+	},
 };
 
 const SQLDatabaseContext = createContext(initialState);
