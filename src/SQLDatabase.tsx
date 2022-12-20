@@ -7,6 +7,7 @@ import {
 } from "react";
 import initSqlJs from "sql.js";
 import { Buffer } from "buffer";
+import { Loader } from "./components/shared/Loader";
 interface SQLDatabaseState {
 	questions: {
 		data: Array<QuestionType>;
@@ -19,7 +20,7 @@ const initialState: SQLDatabaseState = {
 	db: null,
 	questions: {
 		data: [],
-		loading: false
+		loading: false,
 	},
 };
 
@@ -85,7 +86,6 @@ export const SQLDatabaseProvider: React.FunctionComponent<
 
 export const useDatabase = () => {
 	const { db } = useContext(SQLDatabaseContext);
-	if (!db) throw new Error("Database hasn't been initialized");
 	return db;
 };
 

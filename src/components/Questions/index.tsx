@@ -3,13 +3,14 @@ import { useQuestions } from "../../SQLDatabase";
 import { CSSProperties } from "react";
 import { Loader } from "../shared/Loader";
 import { useNavigate } from "react-router-dom";
+import { CompletedCheck } from "../shared/CompletedCheck";
 
 const questionCardStyles: CSSProperties = {
 	marginBottom: 10,
 	padding: 20,
 	cursor: "pointer",
 	display: "grid",
-	gridTemplateColumns: "50px 1fr",
+	gridTemplateColumns: "50px 1fr auto",
 };
 
 const questionTagStyles: CSSProperties = {
@@ -24,7 +25,13 @@ const questionTextStyles: CSSProperties = {
 	fontWeight: "500",
 };
 
-export const Questions = () => {
+interface Props {
+	questionsCompleted: number[];
+}
+
+export const Questions: React.FunctionComponent<Props> = ({
+	questionsCompleted,
+}) => {
 	const { data, loading } = useQuestions();
 	const navigate = useNavigate();
 
@@ -42,6 +49,7 @@ export const Questions = () => {
 							<h3 className="fs-5 px-2 fw-500" style={questionTextStyles}>
 								{item.question}
 							</h3>
+							{idx in questionsCompleted ? <CompletedCheck /> : null}
 						</Card>
 					);
 				})
