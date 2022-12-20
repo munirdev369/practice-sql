@@ -6,9 +6,12 @@ import {
 	useState,
 } from "react";
 import initSqlJs from "sql.js";
-import { Buffer } from 'buffer'
+import { Buffer } from "buffer";
 interface SQLDatabaseState {
-	questions: Array<QuestionType>;
+	questions: {
+		data: Array<QuestionType>;
+		loading: boolean;
+	};
 	db: initSqlJs.Database | null;
 }
 
@@ -37,8 +40,10 @@ export const SQLDatabaseProvider: React.FunctionComponent<
 > = ({ children, dbUrl, questionsUrl }) => {
 	const [db, setDb] = useState<initSqlJs.Database | null>(null);
 	const [questions, setQuestions] = useState<Array<QuestionType>>([]);
+	const [loading, setLoading] = useState(false);
 	const [, setError] = useState<any | null>(null);
 	const fetchSqlJs = async () => {
+		setLoading(true);
 		try {
 			const [database, questions] = await Promise.all([
 				fetch(dbUrl),
@@ -52,12 +57,13 @@ export const SQLDatabaseProvider: React.FunctionComponent<
 					},
 				}),
 			]);
-			debugger;
 			const dbSql = new SQL.Database(Buffer.from(dataBuffer));
 			setDb(dbSql);
 			setQuestions(questions);
+			setLoading(false);
 		} catch (err) {
 			setError(err);
+			setLoading(false);
 		}
 	};
 
@@ -66,7 +72,9 @@ export const SQLDatabaseProvider: React.FunctionComponent<
 	}, []);
 
 	return (
-		<SQLDatabaseContext.Provider value={{ db, questions }}>
+		<SQLDatabaseContext.Provider
+			value={{ db, questions: { data: questions, loading } }}
+		>
 			{children}
 		</SQLDatabaseContext.Provider>
 	);
