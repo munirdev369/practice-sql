@@ -35,6 +35,8 @@ export const Questions: React.FunctionComponent<Props> = ({
 	const { data, loading } = useQuestions();
 	const navigate = useNavigate();
 
+	console.log(questionsCompleted);
+
 	return (
 		<Container style={{ marginTop: 60 }}>
 			{!loading ? (
@@ -49,7 +51,7 @@ export const Questions: React.FunctionComponent<Props> = ({
 							<h3 className="fs-5 px-2 fw-500" style={questionTextStyles}>
 								{item.question}
 							</h3>
-							{idx in questionsCompleted ? <CompletedCheck /> : null}
+							{questionsCompleted.includes(idx) ? <CompletedCheck /> : null}
 						</Card>
 					);
 				})

@@ -50,14 +50,14 @@
     "level": 2,
     "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoices",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoice",
     "bindParams": null
   },
   {
     "level": 2,
     "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.  Order your results by the SalesType field.",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoices ORDER BY SalesType",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoice ORDER BY SalesType",
     "bindParams": null
   },
   {

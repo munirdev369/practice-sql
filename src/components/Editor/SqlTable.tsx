@@ -23,7 +23,6 @@ export const SqlTable: React.FunctionComponent<Props> = ({ index }) => {
 
 	useEffect(() => {
 		if (!db || loading) return;
-    console.log(questions[index]);
 		const { tableName } = questions[index];
 		const result = db.exec(
 			`SELECT name FROM PRAGMA_TABLE_INFO('${tableName}');`

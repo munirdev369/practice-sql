@@ -31,7 +31,7 @@ interface Props {
 	questionsUrl: string;
 }
 
-type QuestionType = {
+export type QuestionType = {
 	level: number;
 	answerQuery: string;
 	question: string;

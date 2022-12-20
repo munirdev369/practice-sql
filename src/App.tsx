@@ -1,12 +1,13 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { Questions } from "./components/Questions";
 import { Editor } from "./components/Editor";
 import { Layout } from "./components/Layout";
 import { Loader } from "./components/shared/Loader";
 import { useQuestions } from "./SQLDatabase";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
 	const [questionsCompleted, setQuestionsCompleted] = useState<number[]>([
@@ -28,7 +29,12 @@ function App() {
 						path={"/"}
 					/>
 					<Route
-						element={<Editor />}
+						element={
+							<Editor
+								handleQuestionCompleted={onQuestionComplete}
+								questionsCompleted={questionsCompleted}
+							/>
+						}
 						path={"/:id"}
 						loader={() => <Loader color="blue" loading={loading} />}
 					/>

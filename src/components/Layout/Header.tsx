@@ -25,7 +25,7 @@ const Header = () => {
 				style={{ paddingLeft: "30px", paddingRight: "30px", height: 80 }}
 			>
 				<Container fluid>
-					<Navbar.Brand style={{ color: "white" }} href="#">
+					<Navbar.Brand onClick={() => navigate('/questions')} style={{ color: "white" }} href="#">
 						Practice SQL Quiz
 					</Navbar.Brand>
 
