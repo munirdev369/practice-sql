@@ -16,9 +16,10 @@
 
 }
 
-
 .sql-table {
-  align-self: center;
+  grid-row: 2 / -1;
+  grid-column: 2 / 3;
+  place-self: start !important;
   display: flex;
   flex-direction: column;
   align-items: center;

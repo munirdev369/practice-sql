@@ -38,7 +38,7 @@ export const SqlTable: React.FunctionComponent<Props> = ({ index }) => {
 			columns,
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [loading]);
+	}, [loading, index]);
 
 	const handleAddTable: React.MouseEventHandler<HTMLParagraphElement> = (
 		e
