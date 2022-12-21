@@ -52,7 +52,7 @@ const EditorWithoutErrorBoundary: React.FunctionComponent<Props> = ({
 	useEffect(() => {
 		if (id && !loading) {
 			let i = parseInt(id);
-			if (isNaN(i) || i >= questions.length) {
+			if (isNaN(i) || i > questions.length) {
 				navigate("/", { replace: true });
 			}
 			i--;
