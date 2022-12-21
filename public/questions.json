@@ -104,9 +104,9 @@
   },
   {
     "level": 3,
-    "question": "How many invoices exceed the average invoice amount generated in 2010?\nHint :you will need a subquery to answer this question.\nNote: List & Name the columns in your result as follows:  “InvoiceDate”, “Total”",
+    "question": "How many Invoice exceed the average invoice amount generated in 2010?\nHint :you will need a subquery to answer this question.\nNote: List & Name the columns in your result as follows:  “InvoiceDate”, “Total”",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, Total FROM Invoice WHERE Total > (select avg(total) From invoices where InvoiceDate between '2010-01-01' and '2010-12-31') ORDER BY Total DESC",
+    "answerQuery": "SELECT InvoiceDate, Total FROM Invoice WHERE Total > (select avg(total) From Invoice where InvoiceDate between '2010-01-01' and '2010-12-31') ORDER BY Total DESC",
     "bindParams": null
   }
 ]
