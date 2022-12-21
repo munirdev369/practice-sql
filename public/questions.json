@@ -10,25 +10,25 @@
   {
     "id": 2,
     "level": 1,
-    "question": "How many columns does the table named tracks have",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "question": "When sorted in descending order, which company appears at the top in the customers table? ",
+    "tableName": "Customer",
+    "answerQuery": "SELECT Company FROM Customer ORDER BY Company DESC",
     "bindParams": null
   },
   {
     "id": 3,
     "level": 1,
-    "question": "What are some of the data types in this table",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "question": "When sorted in descending order, which company appears at the top in the customers table? ",
+    "tableName": "Customer",
+    "answerQuery": "SELECT Company FROM Customer ORDER BY Company DESC",
     "bindParams": null
   },
   {
     "id": 4,
     "level": 1,
-    "question": "What fields are contained in the tracks table? ",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "question": "When sorted in descending order, which company appears at the top in the customers table? ",
+    "tableName": "Customer",
+    "answerQuery": "SELECT Company FROM Customer ORDER BY Company DESC",
     "bindParams": null
   },
   {
@@ -48,23 +48,23 @@
   },
   {
     "level": 2,
-    "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.",
+    "question": "Create a query for the Invoice table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoice",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM Invoice",
     "bindParams": null
   },
   {
     "level": 2,
-    "question": "Create a query for the invoices table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.  Order your results by the SalesType field.",
+    "question": "Create a query for the Invoice table that includes a CASE statement that labels all sales from billing country USA as “Domestic Sales” and all other sales as “Foreign Sales.” Label your new field as SalesType after your END AS statement.  Include the  InvoiceDate, BillingAddress, BillingCity, BillingCountry and Total fields.  Order your results by the SalesType field.",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM invoice ORDER BY SalesType",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total,CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales' ELSE 'Foreign Sales' END AS SalesType FROM Invoice ORDER BY SalesType",
     "bindParams": null
   },
   {
     "level": 2,
-    "question": "How many invoices from Domestic Sales were over $15? \n Hint: Use the same query as the last question again, but this time add a WHERE clause and AND to include both the numeric and text parameters.",
+    "question": "How many Invoice from Domestic Sales were over $15? \n Hint: Use the same query as the last question again, but this time add a WHERE clause and AND to include both the numeric and text parameters.",
     "tableName": "Invoice",
-    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total, CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales'  ELSE 'ForeignSales' END AS SalesType  FROM invoice WHERESalesType = 'Domestic Sales' AND Total > 15",
+    "answerQuery": "SELECT InvoiceDate, BillingAddress, BillingCity, BillingCountry, Total, CASE WHEN BillingCountry = 'USA' THEN 'Domestic Sales'  ELSE 'ForeignSales' END AS SalesType  FROM invoice WHERE SalesType = 'Domestic Sales' AND Total > 15",
     "bindParams": null
   },
   {
@@ -76,100 +76,37 @@
   },
   {
     "level": 3,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "question": "Create a single-line mailing list for all US customers, including capitalized full names and full addresses with five-digit zip codes, in the following format: \n FRANK HARRIS 1600 Amphitheatre Parkway, Mountain View, CA 94043 \nNote: List & Name the columns in your result as follows: “Mailing Address”",
+    "tableName": "Customer",
+    "answerQuery": "SELECT UPPER(FirstName) || ' ' || UPPER(LastName) || ' ' || Address || ',      ' || City || ', ' || State || ' ' || SUBSTR(PostalCode,1,5) AS [Mailing Address] FROM Customer WHERE Country = 'USA' ",
     "bindParams": null
   },
   {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "level": 3,
+    "question": "What are the average annual sales generated by customers from the USA from all years of data available?\nNote: List & Name the columns in your result as follows: “BillingCountry”, “AVG(Total)”",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT BillingCountry, AVG(Total) FROM Invoice WHEREBillingCountry = 'USA'",
     "bindParams": null
   },
   {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "level": 3,
+    "question": "What are the company's all-time total sales?\nNote: List & Name the columns in your result as follows:  “SUM(Total)”",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT SUM(Total) FROM Invoice",
     "bindParams": null
   },
   {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "level": 3,
+    "question": "Who are the top ten best customers from a revenue standpoint?\nHint: You will need to use a join to answer this question. Sort your result in Descending order\nNote: List & Name the columns in your result as follows:  “Revenue Total”, FirstName, LastName",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT SUM(Total)AS [Revenue Total], c.FirstName, c.LastName  FROM Invoice i  INNER JOIN ON customers c  i.CustomerId = c.CustomerId  GROUP BY c.CustomerId ORDER BY SUM(Total) DESC ",
     "bindParams": null
   },
   {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 4,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 5,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
-    "bindParams": null
-  },
-  {
-    "level": 2,
-    "question": "How many tables are in our database",
-    "tableName": "sqlite_master",
-    "answerQuery": "select count(*) from sqlite_master as tables where type='table'",
+    "level": 3,
+    "question": "How many invoices exceed the average invoice amount generated in 2010?\nHint :you will need a subquery to answer this question.\nNote: List & Name the columns in your result as follows:  “InvoiceDate”, “Total”",
+    "tableName": "Invoice",
+    "answerQuery": "SELECT InvoiceDate, Total FROM Invoice WHERE Total > (select avg(total) From invoices where InvoiceDate between '2010-01-01' and '2010-12-31') ORDER BY Total DESC",
     "bindParams": null
   }
 ]
