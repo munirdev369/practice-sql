@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import Header from "./Header";
-import Footer from "./Footer";
+import { DbTables } from "../DbTables";
 
 export const Layout: React.FunctionComponent<PropsWithChildren> = ({
 	children,
@@ -8,8 +8,8 @@ export const Layout: React.FunctionComponent<PropsWithChildren> = ({
 	return (
 		<div className="App">
 			<Header />
-			{children}
-			<Footer />
+			<DbTables />
+			<div className="main">{children}</div>
 		</div>
 	);
 };

@@ -4,6 +4,7 @@ import App from "./App";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { SQLDatabaseProvider } from "./SQLDatabase";
+import StoreProvider from "./store";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
@@ -11,7 +12,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			dbUrl="/STunesStore.sqlite"
 			questionsUrl="/questions.json"
 		>
-			<App />
+			<StoreProvider>
+				<App />
+			</StoreProvider>
 		</SQLDatabaseProvider>
 	</React.StrictMode>
 );

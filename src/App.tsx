@@ -8,32 +8,23 @@ import { Layout } from "./components/Layout";
 import { Loader } from "./components/shared/Loader";
 import { useQuestions } from "./SQLDatabase";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { Result } from "./components/Result";
 
 function App() {
-	const [questionsCompleted, setQuestionsCompleted] = useState<number[]>([]);
 
 	const { loading } = useQuestions();
-
-	const onQuestionComplete = (id: number) => {
-		setQuestionsCompleted((c) => [...new Set([...c, id])]);
-	};
-
 	return (
 		<BrowserRouter>
 			<Layout>
 				<Routes>
 					<Route
-						element={<Questions questionsCompleted={questionsCompleted} />}
+						element={<Editor />}
 						path={"/"}
+						loader={() => <Loader color="blue" loading={loading} />}
 					/>
 					<Route
-						element={
-							<Editor
-								handleQuestionCompleted={onQuestionComplete}
-								questionsCompleted={questionsCompleted}
-							/>
-						}
-						path={"/:id"}
+						element={<Result />}
+						path={"/result"}
 						loader={() => <Loader color="blue" loading={loading} />}
 					/>
 				</Routes>

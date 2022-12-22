@@ -16,17 +16,13 @@ const backBtnStyles: CSSProperties = {
 };
 
 interface Props {
-	index: number;
 	open: boolean;
 	handleClose: () => void;
-	handleNextBtnClick: () => void;
 }
 
 export const SuccessModal: React.FunctionComponent<Props> = ({
 	open,
-	index,
 	handleClose,
-	handleNextBtnClick,
 }) => {
 	const navigate = useNavigate();
 	const { data } = useQuestions();
@@ -41,20 +37,6 @@ export const SuccessModal: React.FunctionComponent<Props> = ({
 			open={open}
 			handleClose={handleClose}
 			text="Congratulations. Your answer is correct"
-		>
-			{index === data.length - 1 ? (
-				<Button style={backBtnStyles} onClick={handleBackBtnClick}>
-					Start Again
-				</Button>
-			) : (
-				<NextQsBtn
-					index={index}
-					onClick={() => {
-						handleClose();
-						handleNextBtnClick();
-					}}
-				/>
-			)}
-		</Modal>
+		></Modal>
 	);
 };

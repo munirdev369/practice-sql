@@ -10,8 +10,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 const navItems = [
-	{ id: 1, title: "Home", link: "/" },
-	{ id: 2, title: "Editor", link: "/1" },
+	{ id: 1, title: "Editor", link: "/" },
 ];
 
 const Header = () => {
@@ -25,7 +24,11 @@ const Header = () => {
 				style={{ paddingLeft: "30px", paddingRight: "30px", height: 80 }}
 			>
 				<Container fluid>
-					<Navbar.Brand onClick={() => navigate('/questions')} style={{ color: "white" }} href="#">
+					<Navbar.Brand
+						onClick={() => navigate("/questions")}
+						style={{ color: "white" }}
+						href="#"
+					>
 						Practice SQL Quiz
 					</Navbar.Brand>
 
