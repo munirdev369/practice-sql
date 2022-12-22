@@ -9,7 +9,7 @@ import StoreProvider from "./store";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<SQLDatabaseProvider
-			dbUrl="/STunesStore.sqlite"
+			dbUrl="/DigitalEvidenceDB.db"
 			questionsUrl="/questions.json"
 		>
 			<StoreProvider>

@@ -56,8 +56,8 @@ export const DbTables = () => {
 		<div className="dbtables__container aside">
 			<div className="aside_container">
 				<h4
-					className="fs-5 mx-4 my-3 py-3"
-					style={{ border: "2px solid #cecece", textAlign: "center" }}
+					className="fs-4 mx-5 my-3 py-3"
+					style={{ textAlign: "left" }}
 				>
 					DataBase Tables
 				</h4>
@@ -65,7 +65,7 @@ export const DbTables = () => {
 					<>
 						<div
 							className="d-flex align-items-start flex-column"
-							style={{ paddingLeft: "40px", marginTop: "70px" }}
+							style={{ paddingLeft: "40px", marginTop: "30px" }}
 						>
 							{tables?.map((table, idx) => (
 								<div className="me-4 fs-5 py-3" key={table.id}>

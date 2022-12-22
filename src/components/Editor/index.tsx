@@ -25,7 +25,6 @@ const EditorWithoutErrorBoundary: React.FunctionComponent<Props> = ({}) => {
 	const dispatch = useDispatch();
 	const { throwError } = useError();
 	const db = useDatabase();
-	const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
 	const getQueryResult = (query: string) => {
 		const expectedResult = db!.exec(query);
@@ -43,7 +42,7 @@ const EditorWithoutErrorBoundary: React.FunctionComponent<Props> = ({}) => {
 	const handleRun = () => {
 		try {
 			const { columns, values } = getQueryResult(answer.replace(";", ""));
-			dispatch({ type: Actions.SET_RESULT, payload: { columns, values } })
+			dispatch({ type: Actions.SET_RESULT, payload: { columns, values } });
 			navigate("/result", { replace: true });
 		} catch (error) {
 			const { message = "" } = error as Error;
@@ -56,14 +55,8 @@ const EditorWithoutErrorBoundary: React.FunctionComponent<Props> = ({}) => {
 	};
 
 	return (
-		<Container
-			onClick={() => {
-				textAreaRef.current?.focus();
-			}}
-			className="sql-box"
-		>
+		<Container className="sql-box">
 			<textarea
-				ref={textAreaRef}
 				className="answers"
 				value={answer}
 				onChange={(e) => {

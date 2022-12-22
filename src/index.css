@@ -5,8 +5,8 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-
-  --bg-aside: rgba(198, 245, 157, 0.984);
+  --main-color: #535bf2; 
+  --bg-aside: rgba(248, 248, 248, 0.984);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
