@@ -25,7 +25,7 @@ const Header = () => {
 			>
 				<Container fluid>
 					<Navbar.Brand
-						onClick={() => navigate("/questions")}
+						onClick={() => navigate("/")}
 						style={{ color: "white" }}
 						href="#"
 					>
