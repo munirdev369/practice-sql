@@ -7,11 +7,9 @@ import {
 	NavItem,
 	NavLink,
 } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const navItems = [
-	{ id: 1, title: "Editor", link: "/" },
-];
+const navItems = [{ id: 1, title: "Editor", link: "/" }];
 
 const Header = () => {
 	const navigate = useNavigate();
@@ -24,13 +22,11 @@ const Header = () => {
 				style={{ paddingLeft: "30px", paddingRight: "30px", height: 80 }}
 			>
 				<Container fluid>
-					<Navbar.Brand
-						onClick={() => navigate("/")}
-						style={{ color: "white" }}
-						href="#"
-					>
-						WSDA SQL Editor
-					</Navbar.Brand>
+					<Link to={"/"}>
+						<Navbar.Brand style={{ color: "white" }}>
+							WSDA SQL Editor
+						</Navbar.Brand>
+					</Link>
 
 					<Navbar.Toggle aria-controls="practicesqlnavbar" />
 
