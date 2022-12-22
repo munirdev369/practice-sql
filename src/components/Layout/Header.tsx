@@ -29,7 +29,7 @@ const Header = () => {
 						style={{ color: "white" }}
 						href="#"
 					>
-						Practice SQL Quiz
+						WSDA SQL Editor
 					</Navbar.Brand>
 
 					<Navbar.Toggle aria-controls="practicesqlnavbar" />
